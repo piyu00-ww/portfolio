@@ -12,7 +12,18 @@ body {
   line-height: 1.6;
   min-height: 100vh;
 }
-
+.glass:hover {
+  transform: scale(1.02);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+.glass {
+  transition: all 0.3s ease;
+}
+.glass:hover {
+  cursor: pointer;
+}
 /* Bubble animation */
 .bubbles {
   position: fixed;
