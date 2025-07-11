@@ -40,24 +40,55 @@ body {
   height: 100%;
   pointer-events: none;
   z-index: 0;
+  overflow: hidden;
 }
+
 .bubble {
   position: absolute;
   bottom: -100px;
-  background: rgba(255, 255, 255, 0.3);
   border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.05));
+  box-shadow: 
+    inset -3px -3px 6px rgba(255, 255, 255, 0.25),
+    inset 3px 3px 6px rgba(0, 0, 0, 0.15),
+    0 4px 10px rgba(0, 255, 255, 0.2);
+  backdrop-filter: blur(2px);
+  transform: translateZ(0);
   animation: rise 10s infinite ease-in;
+  opacity: 0.6;
 }
-.bubble:nth-child(1) { left: 10%; width: 20px; height: 20px; animation-duration: 6s; }
-.bubble:nth-child(2) { left: 30%; width: 25px; height: 25px; animation-duration: 8s; }
-.bubble:nth-child(3) { left: 50%; width: 15px; height: 15px; animation-duration: 7s; }
-.bubble:nth-child(4) { left: 70%; width: 18px; height: 18px; animation-duration: 9s; }
-.bubble:nth-child(5) { left: 90%; width: 22px; height: 22px; animation-duration: 5s; }
 
+/* BUBBLE VARIANTS */
+.bubble:nth-child(1) {
+  left: 10%; width: 22px; height: 22px; animation-duration: 7s;
+}
+.bubble:nth-child(2) {
+  left: 30%; width: 28px; height: 28px; animation-duration: 9s;
+}
+.bubble:nth-child(3) {
+  left: 50%; width: 18px; height: 18px; animation-duration: 8s;
+}
+.bubble:nth-child(4) {
+  left: 70%; width: 25px; height: 25px; animation-duration: 10s;
+}
+.bubble:nth-child(5) {
+  left: 90%; width: 30px; height: 30px; animation-duration: 6s;
+}
+
+/* FLOATY MOTION */
 @keyframes rise {
-  0% { transform: translateY(0); opacity: 0.2; }
-  50% { opacity: 0.6; }
-  100% { transform: translateY(-120vh); opacity: 0; }
+  0% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(-60vh) scale(1.1) rotate(180deg);
+  }
+  100% {
+    transform: translateY(-120vh) scale(1) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 header {
